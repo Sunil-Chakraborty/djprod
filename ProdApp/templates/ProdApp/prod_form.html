@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<header>
+<style>
+
+</style>
+</header>
+
+<body>
+			<form  method="POST" action="">
+                {% csrf_token %}
+				
+
+                {% for field in form %}
+				
+				 {% if form.errors %}
+					  <div class="alert-warning center">
+						  <h2>{{form.non_field_errors}}</h2>
+					  </div> 
+				 {% endif %}
+
+                <!-- Input:Text -->
+                <div >
+                    <label for="formInput#text">{{field.label}}</label>
+                    {{field}}
+                </div>
+                {% endfor %}
+
+                <input class="btn btn--sub btn--lg  my-md" type="submit" value="Submit" />
+            </form>
+
+
+</body>
+</html>
+
+
+
+

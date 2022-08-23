@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>The queryset object:</p>
+
+{{ data.query }}
+
+<p>Loop through the items:</p>
+
+<table border='1'>
+  <tr>
+  
+			<th>Product Code</th>
+			<th>Description</th>
+			<th>UOM</th>
+		
+  </tr>
+  {% for x in data %}
+    <tr>
+      <td>{{ x.prod_id }}</td>
+        <td>{{ x.prod_desc }}</td>
+      <td>{{ x.uom }}</td>
+    </tr>
+  {% endfor %}
+</table>
+
+</body>
+</html>        

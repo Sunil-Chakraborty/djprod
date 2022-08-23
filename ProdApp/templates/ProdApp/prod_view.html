@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<header>
+<style>
+
+</style>
+</header>
+<body>
+	<form method="POST" action="{% url 'ProdApp:prod-view' %}">  
+        {% csrf_token %}
+		<table>
+		<tr>	
+			<th>U.O.M    :</th>
+			<th>Short Dsc.</th>
+		</tr>
+		<tr>		
+			<td><input type="text" name="uom" maxlength="5" required="" id="id_uom"> </td>
+			<td><input type="text" name="prod_desc" maxlength="50" required="" id="id_prod_desc"></td>
+			<td><input type="submit" value="OK"></td>
+		</tr>
+		
+		</table>
+		
+		
+		 
+	</form>
+	<br>
+	<a href="{% url 'ProdApp:create-prod' %}">Add</a>
+	
+    <h1>Product Details</h1>
+	<table border='1'>
+		<tr>
+			<th>Product Code</th>
+			<th>Description</th>
+			<th>UOM</th>
+		</tr>
+
+		{% for item in data %}
+			<tr>
+				<td style="margin-left:15px;">{{item.prod_id}}</td>
+				<td>{{item.prod_desc}}</td>
+				<td>{{item.uom}}</td>
+								
+
+				
+			</tr>
+		{% endfor %}
+		
+	</table>
+
+</body>
+
+</html>
